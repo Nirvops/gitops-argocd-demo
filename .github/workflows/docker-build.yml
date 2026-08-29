@@ -32,5 +32,5 @@ jobs:
           context: ./app
           file: ./app/Dockerfile
           tags: |
-            ghcr.io/Nirvops/gitops-argocd-demo:latest
-            ghcr.io/Nirvops/gitops-argocd-demo:${{ github.sha }}
+            ghcr.io/nirvops/gitops-argocd-demo:latest
+            ghcr.io/nirvops/gitops-argocd-demo:${{ github.sha }}
