@@ -5,9 +5,7 @@
 
 ## Architecture
 
-<!-- PLACEHOLDER — do not fill until the pipeline actually runs end to end.
-Draw the real flow, not the intended one. If the real flow has a manual step
-you haven't automated yet, the diagram should show that honestly. -->
+The architecture of this project is based on a local PC, on the OS ubuntu 26.04. The first steps of the infra structure was the installation of docker kind (v0.24.0)
 
 ## Why these tools
 
@@ -49,6 +47,16 @@ doesn't work when you re-run it clean, the README is wrong, not the reader. -->
 
 ## Known limitations
 
-<!-- PLACEHOLDER — fill in last. This is the section that separates you
-from a copy-pasted tutorial repo. What did you deliberately not build?
-What would break in production? Say it plainly. -->
+
+## Troubleshooting Notes
+
+### Installations
+
+During the installation. I've noticed that for every command with docker and kind, the 'sudo' was necessary. When I was doing a command without it, the output was mostly empty. After a short troubleshooting (with Claude AI), the reason has been discovered.
+When I was doing the groups command sudo was there but docker wasn't. The reason : I didn't know that I had to run the usermod command.
+To fix it, there was 2 solutions that has been proposed to me. First write sudo before every docker-touching or add docker to the group list to run the commands without sudo. The most practical was of course the second one. 
+The next step was then to do it using the command:
+```sudo usermod -aG docker $USER```
+Then close and reopen the terminal and check if docker was added to the groups:
+```groups```
+
