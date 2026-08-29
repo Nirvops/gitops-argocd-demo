@@ -28,22 +28,45 @@ implementation details. Tighten the wording once the repo is done. -->
 - Kubernetes manifest management via Argo CD
 
 ## Repo structure
-
-<!-- Fill in as folders get created. Keep it accurate — a structure section
-that doesn't match the actual repo is worse than no structure section. -->
-```
-.
-├── app/            #
-├── manifests/       #
-├── .github/workflows/  #
+gitops-argocd-demo
+├── app/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
 └── README.md
-```
+
 
 ## Running it locally
 
-<!-- PLACEHOLDER — write these steps by literally running them yourself,
-copy-pasting from your own terminal history, not from memory. If a step
-doesn't work when you re-run it clean, the README is wrong, not the reader. -->
+### Dockerfile
+1. Build the image
+Command
+```docker build -t gitops-demo-app:v1 .```
+Output
+```[+] Building 8.5s (11/11) FINISHED```
+2. Run the container
+Command:
+```docker run -d -p 5000:5000 --name demo-test gitops-demo-app:v1```
+Output:
+084bcd326f81ee49bad27b93afad963591d951f77dc5e94d0db9e1562e0c038a
+3. Check the user:
+Command:
+```docker exec demo-test whoami```
+Output:
+app
+4. Check the responsivity of the link
+Command:
+```curl localhost:5000```
+Output:
+GitOps demo app is running
+5. Check the release version
+Command:
+```curl localhost:5000/version```
+Output:
+v1
+
+See [Dockerfile](./app/Dockerfile).
+
 
 ## Known limitations
 
