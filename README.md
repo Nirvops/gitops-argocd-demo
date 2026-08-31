@@ -30,6 +30,9 @@ implementation details. Tighten the wording once the repo is done. -->
 ## Repo structure
 <pre>
   gitops-argocd-demo
+  ├── .github/
+      ├── workflows/
+          ├── docker-build.yml
   ├── app/
   │   ├── app.py
   │   ├── Dockerfile
