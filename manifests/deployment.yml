@@ -1,0 +1,37 @@
+# Version of the Kubernetes API to use
+apiVersion: apps/v1
+# The kind of resource being defined (in this case, a Deployment)
+kind: Deployment
+# Metadata about the Deployment, including its name and labels
+metadata:
+  name: app-deployment
+  labels:
+    app: app
+# Specification of the desired state of the Deployment
+spec:
+  # Number of desired replicas of the application
+  replicas: 1
+  # Selector to identify the Pods managed by this Deployment
+  selector:
+    matchLabels:
+      app: app
+  # Template for the Pods managed by this Deployment
+  template:
+    metadata:
+      labels:
+        app: app
+    # Specification of the desired state of the Pods
+    spec:
+      containers:
+      - name: app-container
+        image: ghcr.io/nirvops/gitops-argocd-demo:76cb36b529838fe1be187f2bb63ec856e7acbf1c
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "64Mi"   # Minimum amount of memory requested for the container
+            cpu: "250m"      # Minimum amount of CPU requested for the container
+          limits:
+            memory: "128Mi"  # Maximum amount of memory allowed for the container
+            cpu: "500m"      # Maximum amount of CPU allowed for the container
+

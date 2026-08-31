@@ -9,15 +9,11 @@ The architecture of this project is based on a local PC, on the OS ubuntu 26.04.
 
 ## Why these tools
 
-<!-- PLACEHOLDER — fill this in AS you hit each decision, not after.
-Prompts to answer when you actually face them:
-- Why Argo CD over Flux (or over just `kubectl apply` in CI)?
-- Why kind over minikube/k3d?
-- Pull-based sync vs push-based deploy — what did you actually pick, and what
-  did that decision cost you (latency? complexity? something else)?
-Write your answer the day you make the decision. If you can't explain why
-you didn't pick the alternative, you don't understand the decision yet —
-that's a signal to go learn the alternative, not to skip the question. -->
+- **Kubernetes**:
+  - Excellent control of the resources: ```resources.requests ```/```resources.requests ```allows to get a precise control over the resouces to prevent the container to go wild and accaparate all the resources for itself or to starve and not get enough.
+- **Kind**:
+- **Docker**:
+- **
 
 ## What this demonstrates
 
