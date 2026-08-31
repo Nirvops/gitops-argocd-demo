@@ -31,8 +31,8 @@ implementation details. Tighten the wording once the repo is done. -->
 <pre>
   gitops-argocd-demo
   ├── .github/
-      ├── workflows/
-          ├── docker-build.yml
+  │    ├── workflows/
+  │        ├── docker-build.yml
   ├── app/
   │   ├── app.py
   │   ├── Dockerfile
