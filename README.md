@@ -28,13 +28,14 @@ implementation details. Tighten the wording once the repo is done. -->
 - Kubernetes manifest management via Argo CD
 
 ## Repo structure
-gitops-argocd-demo
-├── app/
-│   ├── app.py
-│   ├── Dockerfile
-│   └── requirements.txt
-└── README.md
-
+<pre>
+  gitops-argocd-demo
+  ├── app/
+  │   ├── app.py
+  │   ├── Dockerfile
+  │   └── requirements.txt
+  └── README.md
+</pre>
 
 ## Running it locally
 
