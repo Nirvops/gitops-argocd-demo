@@ -34,4 +34,6 @@ spec:
           limits:
             memory: "128Mi"  # Maximum amount of memory allowed for the container
             cpu: "500m"      # Maximum amount of CPU allowed for the container
+      imagePullSecrets:
+        - name: ghcr-pull-image-secret
 
