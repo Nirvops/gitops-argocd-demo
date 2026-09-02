@@ -82,7 +82,7 @@ Argo CD continuously monitors the Git repository and automatically synchronizes 
   ├── manifests/
   │   ├── deployment.yaml
   │   └── service.yaml
-  ├── Diagram
+  ├── Diagram.png
   └── README.md
 </pre>
 
@@ -105,25 +105,25 @@ Before deploying to Kubernetes, the container can be tested independently using 
 
 1. Build the image
 Command
-```bash docker build -t gitops-demo-app:v1 .```
+```docker build -t gitops-demo-app:v1 .```
 
 2. Run the container
 Command:
-```bash docker run -d -p 5000:5000 --name demo-test gitops-demo-app:v1```
+```docker run -d -p 5000:5000 --name demo-test gitops-demo-app:v1```
 
 3. Check the user:
 Command:
-```bash docker exec demo-test whoami```
+```docker exec demo-test whoami```
 Output:
 ```app```
 4. Check the application responsiveness
 Command:
-```bash curl localhost:5000```
+```curl localhost:5000```
 Output:
 GitOps demo app is running
 5. Check the release version
 Command:
-```bash curl localhost:5000/version```
+```curl localhost:5000/version```
 Output:
 ```v1```
 
@@ -157,9 +157,9 @@ To fix it, there are 2 solutions :
 
 The second approach is more practical.
 Add the current user to the Docker group:
-```bash sudo usermod -aG docker $USER```
+```sudo usermod -aG docker $USER```
 After logging out and back in, or restarting the WSL session, verify the user's groups:
-```bash groups```
+```groups```
 
 ## Future Improvements
 
@@ -169,11 +169,18 @@ After logging out and back in, or restarting the WSL session, verify the user's 
 - Add Prometheus/Grafana for monitoring and observability.
 - Add automated security scanning for container images.
 
-GitHub Actions | Kubernetes | Argo CD | Docker | GitOps
-
 ## Tech Stack
 
-- **Kubernetes**:
-  - Excellent control of the resources: ```resources.requests ```/```resources.requests ```allows to get a precise control over the resouces to prevent the container to go wild and accaparate all the resources for itself or to starve and not get enough.
+| Category | Technology | Purpose |
+|---|---|---|
+| Application | Python | Sample application |
+| Containerization | Docker | Build the application image |
+| CI | GitHub Actions | Build and publish the image |
+| Container Registry | GHCR | Store container images |
+| CD / GitOps | Argo CD | Synchronize Kubernetes resources |
+| Orchestration | Kubernetes | Run the application |
+| Local Kubernetes | kind | Local Kubernetes cluster |
+| Development Environment | WSL2 / Ubuntu | Local development environment |
+| Version Control | Git / GitHub | Source code and desired state |
 
-  
+GitHub Actions | Kubernetes | Argo CD | Docker | GitOps
