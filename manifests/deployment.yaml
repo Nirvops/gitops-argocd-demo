@@ -10,7 +10,7 @@ metadata:
 # Specification of the desired state of the Deployment
 spec:
   # Number of desired replicas of the application
-  replicas: 3
+  replicas: 2
   # Selector to identify the Pods managed by this Deployment
   selector:
     matchLabels:
