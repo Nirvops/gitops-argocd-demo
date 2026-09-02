@@ -6,7 +6,6 @@ on:
 permissions:
   contents: read  # Allows the workflow to read the contents of the repository
   packages: write # Allows the workflow to write to GitHub Packages (GHCR)
-  packages: read  # Allows the workflow to read from GitHub Packages (GHCR)
 
 jobs:
   docker:
